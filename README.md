@@ -4,9 +4,9 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Ce projet est une application a interface sociale de vente en ligne des délicieux gateux.
 
-A few resources to get you started if this is your first Flutter project:
+Pour le demarrer apres téléchargement tapez la commande : flutter pub get et puis flutter run:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
