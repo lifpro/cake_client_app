@@ -1,3 +1,4 @@
+import 'package:cake_client_app/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: AppBarTheme(
+            backgroundColor: Colors.blue,
+            centerTitle: true,
+            foregroundColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Cake APP'),
+      home: HomePage(),
     );
   }
 }
