@@ -17,9 +17,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         appBarTheme: AppBarTheme(
-            backgroundColor: Colors.blue,
+            backgroundColor: const Color.fromARGB(255, 55, 41, 8),
             centerTitle: true,
             foregroundColor: Colors.white),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: const Color.fromARGB(255, 55, 41, 8),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: const Color.fromARGB(143, 224, 195, 195)),
         useMaterial3: true,
       ),
       //home: const MyHomePage(title: 'Cake APP'),
