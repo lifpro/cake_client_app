@@ -1,4 +1,4 @@
-import 'package:cake_client_app/home.dart';
+import 'package:cake_client_app/home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
