@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 class CakeCard extends StatelessWidget {
   final String name;
   final String image;
+  final bool checked;
+  final VoidCallback updateChecked;
 
-  const CakeCard({super.key, required this.name, required this.image});
+  const CakeCard(
+      {super.key,
+      required this.name,
+      required this.image,
+      required this.checked,
+      required this.updateChecked});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +30,7 @@ class CakeCard extends StatelessWidget {
               fit: BoxFit.cover,
               child: InkWell(
                 onTap: () {
-                  print('Ink appuyer');
+                  updateChecked();
                 },
               ),
             ),
@@ -38,7 +45,7 @@ class CakeCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(
-                          Icons.star_border,
+                          checked ? Icons.star : Icons.star_border,
                           size: 30,
                           color: myPrimatyColor,
                         )

@@ -10,10 +10,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List cakes = [
-    {'name': 'Fôret noire', 'image': '1.png'},
-    {'name': 'Fôret blanche', 'image': '2.png'},
-    {'name': 'Fôret melange', 'image': '3.png'}
+    {'name': 'Fôret noire', 'image': '1.png', 'checked': true},
+    {'name': 'Fôret blanche', 'image': '2.png', 'checked': false},
+    {'name': 'Fôret melange', 'image': '3.png', 'checked': true}
   ];
+  switchChecked(cake) {
+    var index = cakes.indexOf(cake);
+    setState(() {
+      cakes[index]['checked'] = !cakes[index]['checked'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +43,11 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.all(10),
         child: Column(
           children: cakes
-              .map((cake) => CakeCard(name: cake['name'], image: cake['image']))
+              .map((cake) => CakeCard(
+                  name: cake['name'],
+                  image: cake['image'],
+                  checked: cake['checked'],
+                  updateChecked: () => switchChecked(cake)))
               .toList(),
         ),
       ),
