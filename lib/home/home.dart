@@ -1,3 +1,4 @@
+import 'package:cake_client_app/data/cakes_data.dart';
 import 'package:cake_client_app/home/widgets/cake_card.dart';
 import 'package:flutter/material.dart';
 
@@ -9,15 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List cakes = [
-    {'name': 'Fôret noire', 'image': '1.png', 'checked': true},
-    {'name': 'Fôret blanche', 'image': '2.png', 'checked': false},
-    {'name': 'Fôret melange', 'image': '3.png', 'checked': true}
-  ];
   switchChecked(cake) {
     var index = cakes.indexOf(cake);
     setState(() {
-      cakes[index]['checked'] = !cakes[index]['checked'];
+      cakes[index].checked = !cakes[index].checked;
     });
   }
 
@@ -39,18 +35,45 @@ class _HomePageState extends State<HomePage> {
           actions: [
             Icon(Icons.settings),
           ]),
-      body: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: cakes
-              .map((cake) => CakeCard(
-                  name: cake['name'],
-                  image: cake['image'],
-                  checked: cake['checked'],
-                  updateChecked: () => switchChecked(cake)))
-              .toList(),
-        ),
-      ),
+      body: ListView(children: [
+        CakeCard(
+            name: 'Gateau 1',
+            image: '1.png',
+            checked: false,
+            updateChecked: () => {}),
+        CakeCard(
+            name: 'Gateau 2',
+            image: '2.png',
+            checked: false,
+            updateChecked: () => {}),
+        CakeCard(
+            name: 'Gateau 3',
+            image: '3.png',
+            checked: false,
+            updateChecked: () => {}),
+        CakeCard(
+            name: 'Gateau 4',
+            image: '3.png',
+            checked: false,
+            updateChecked: () => {}),
+        CakeCard(
+            name: 'Gateau 5',
+            image: '3.png',
+            checked: false,
+            updateChecked: () => {}),
+      ]),
+      //  body: Container(
+      //   padding: EdgeInsets.all(10),
+      //   child: Column(
+      //     children: cakes
+      //         .map((cake) => CakeCard(
+      //             name: cake.name,
+      //             image: cake.image,
+      //             checked: cake.checked,
+      //             updateChecked: () => switchChecked(cake)))
+      //         .toList(),
+      //   ),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
