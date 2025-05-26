@@ -1,5 +1,5 @@
 import 'package:cake_client_app/data/cakes_data.dart';
-import 'package:cake_client_app/home/widgets/cake_card.dart';
+import 'package:cake_client_app/utils/contantes.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,9 +36,26 @@ class _HomePageState extends State<HomePage> {
             Icon(Icons.settings),
           ]),
       body: ListView.separated(
-          itemBuilder: (context, index) => CakeCard(
-              cake: cakes[index],
-              updateChecked: () => switchChecked(cakes[index])),
+          // itemBuilder: (context, index) => CakeCard(
+          //     cake: cakes[index],
+          itemBuilder: (context, index) => ListTile(
+                leading: CircleAvatar(
+                  backgroundImage:
+                      AssetImage('assets/images/${cakes[index].image}'),
+                  radius: 50,
+                ),
+                title: Text(
+                  cakes[index].name,
+                  style: TextStyle(fontWeight: FontWeight.w900),
+                ),
+                subtitle: Text('Disponible'),
+                trailing: CircleAvatar(
+                  foregroundColor: Colors.white,
+                  backgroundColor: myPrimatyColor,
+                  child: Text('17'),
+                ),
+                contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+              ),
           separatorBuilder: (context, index) => SizedBox(
                 height: 5,
               ),
