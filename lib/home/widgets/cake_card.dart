@@ -1,18 +1,12 @@
+import 'package:cake_client_app/models/cake_model.dart';
 import 'package:cake_client_app/utils/contantes.dart';
 import 'package:flutter/material.dart';
 
 class CakeCard extends StatelessWidget {
-  final String name;
-  final String image;
-  final bool checked;
+  final CakeModel cake;
   final VoidCallback updateChecked;
 
-  const CakeCard(
-      {super.key,
-      required this.name,
-      required this.image,
-      required this.checked,
-      required this.updateChecked});
+  const CakeCard({super.key, required this.cake, required this.updateChecked});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +19,7 @@ class CakeCard extends StatelessWidget {
           children: [
             Ink.image(
               image: AssetImage(
-                'assets/images/$image',
+                'assets/images/${cake.image}',
               ),
               fit: BoxFit.cover,
               child: InkWell(
@@ -45,7 +39,7 @@ class CakeCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(
-                          checked ? Icons.star : Icons.star_border,
+                          cake.checked ? Icons.star : Icons.star_border,
                           size: 30,
                           color: myPrimatyColor,
                         )
@@ -55,7 +49,7 @@ class CakeCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        name,
+                        cake.name,
                         style: TextStyle(
                             color: myPrimatyColor,
                             fontSize: 30,

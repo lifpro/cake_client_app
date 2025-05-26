@@ -35,33 +35,41 @@ class _HomePageState extends State<HomePage> {
           actions: [
             Icon(Icons.settings),
           ]),
-      body: ListView(children: [
-        CakeCard(
-            name: 'Gateau 1',
-            image: '1.png',
-            checked: false,
-            updateChecked: () => {}),
-        CakeCard(
-            name: 'Gateau 2',
-            image: '2.png',
-            checked: false,
-            updateChecked: () => {}),
-        CakeCard(
-            name: 'Gateau 3',
-            image: '3.png',
-            checked: false,
-            updateChecked: () => {}),
-        CakeCard(
-            name: 'Gateau 4',
-            image: '3.png',
-            checked: false,
-            updateChecked: () => {}),
-        CakeCard(
-            name: 'Gateau 5',
-            image: '3.png',
-            checked: false,
-            updateChecked: () => {}),
-      ]),
+      body: ListView.separated(
+          itemBuilder: (context, index) => CakeCard(
+              cake: cakes[index],
+              updateChecked: () => switchChecked(cakes[index])),
+          separatorBuilder: (context, index) => SizedBox(
+                height: 5,
+              ),
+          itemCount: cakes.length),
+      // body: ListView(children: [
+      //   CakeCard(
+      //       name: 'Gateau 1',
+      //       image: '1.png',
+      //       checked: false,
+      //       updateChecked: () => {}),
+      //   CakeCard(
+      //       name: 'Gateau 2',
+      //       image: '2.png',
+      //       checked: false,
+      //       updateChecked: () => {}),
+      //   CakeCard(
+      //       name: 'Gateau 3',
+      //       image: '3.png',
+      //       checked: false,
+      //       updateChecked: () => {}),
+      //   CakeCard(
+      //       name: 'Gateau 4',
+      //       image: '3.png',
+      //       checked: false,
+      //       updateChecked: () => {}),
+      //   CakeCard(
+      //       name: 'Gateau 5',
+      //       image: '3.png',
+      //       checked: false,
+      //       updateChecked: () => {}),
+      // ]),
       //  body: Container(
       //   padding: EdgeInsets.all(10),
       //   child: Column(
