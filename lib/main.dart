@@ -1,3 +1,4 @@
+import 'package:cake_client_app/cake/cake_details.dart';
 import 'package:cake_client_app/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const MyHomePage(title: 'Cake APP'),
-      home: HomePage(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => HomePage(),
+        "cakeDetails": (context) => CakeDetailsPage(),
+      },
+      //home: HomePage(),
     );
   }
 }
