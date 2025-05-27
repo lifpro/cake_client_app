@@ -1,4 +1,5 @@
 import 'package:cake_client_app/models/cake_model.dart';
+import 'package:cake_client_app/utils/contantes.dart';
 import 'package:flutter/material.dart';
 
 class CakeDetailsPage extends StatelessWidget {
@@ -9,14 +10,39 @@ class CakeDetailsPage extends StatelessWidget {
     final CakeModel cake =
         ModalRoute.of(context)!.settings.arguments as CakeModel;
     return NestedScrollView(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              BackButton(onPressed: () => Navigator.pop(context)),
-            ],
+      body: Material(
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(8),
+                  color: myPrimatyColor,
+                  child: Text(
+                    cake.name,
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  color: Colors.white,
+                  child: Text(
+                    cake.description,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                BackButton(
+                  onPressed: () => Navigator.pop(context, 'Blabla'),
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -17,6 +17,16 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<void> goToDetails(cake) async {
+    final data =
+        await Navigator.pushNamed(context, 'cakeDetails', arguments: cake);
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(data.toString()),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,11 +89,13 @@ class _HomePageState extends State<HomePage> {
                 contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                 onTap: () {
                   // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => CakeDetailsPage()));
-                  Navigator.pushNamed(context, 'cakeDetails',
-                      arguments: cakes[index]);
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: (context) => CakeDetailsPage()));
+                  // final data = Navigator.pushNamed(context, 'cakeDetails',
+                  //     arguments: cakes[index]);
+
+                  goToDetails(cakes[index]);
                 },
               ),
           separatorBuilder: (context, index) => SizedBox(
