@@ -82,7 +82,8 @@ class _HomePageState extends State<HomePage> {
                   //     context,
                   //     MaterialPageRoute(
                   //         builder: (context) => CakeDetailsPage()));
-                  Navigator.pushNamed(context, 'cakeDetails');
+                  Navigator.pushNamed(context, 'cakeDetails',
+                      arguments: cakes[index]);
                 },
               ),
           separatorBuilder: (context, index) => SizedBox(
