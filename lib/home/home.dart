@@ -1,6 +1,8 @@
 import 'package:cake_client_app/home/home_list.dart';
 import 'package:cake_client_app/home/home_profil.dart';
+import 'package:cake_client_app/utils/contantes.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +13,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  final Uri _url = Uri.parse('https://www.technolab-ista.net/');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +122,7 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: BoxDecoration(color: myPrimatyColor),
               child: Text(
                 'My Cake APP',
                 style: TextStyle(
@@ -129,7 +138,10 @@ class _HomePageState extends State<HomePage> {
               title: Text('Menu 2'),
             ),
             ListTile(
-              title: Text('Menu 3'),
+              title: Text('A propos de nous'),
+              onTap: () {
+                _launchUrl();
+              },
             )
           ],
         ),
